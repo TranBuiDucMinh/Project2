@@ -32,10 +32,8 @@ public class BuildingAPI {
 	@Autowired
 	private BuildingService buildingService;
 	@GetMapping(value = "/api/building/")
-	public List<BuildingDTO> getBuilding(@RequestParam(name="name",required = false) String name,
-			@RequestParam(name="districtid",required = false) Long district,
-			@RequestParam(name="typeCode",required = false) List<String> typeCode) {
-		List<BuildingDTO> result = buildingService.findAll(name,district);	
+	public List<BuildingDTO> getBuilding(@RequestParam Map<String,Object> params) {
+		List<BuildingDTO> result = buildingService.findAll(params);	
 	    return result;
 	}
 //	@PostMapping(value = "/api/building/")
