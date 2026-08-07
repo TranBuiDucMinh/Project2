@@ -42,7 +42,8 @@ public class BuildingRepositoryImpl implements BuildingRepository{
         				!fieldName.startsWith("rentPrice")) {
     				Object value = item.get(buildingSearchBuilder);
     				if(value != null) {
-        				if(item.getType().getName().equals("java.lang.Long") || item.getType().getName().equals("java.lang.Integer")) {
+        				if(item.getType().getName().equals("java.lang.Long") || item.getType().getName().equals("java.lang.Integer") 
+        						|| item.getType().getName().equals("java.lang.Float")) {
         					where.append(" AND b." + fieldName + " = " + value);
         				}
         				else if(item.getType().getName().equals("java.lang.String")){
